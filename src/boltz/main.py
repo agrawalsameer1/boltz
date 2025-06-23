@@ -222,7 +222,8 @@ def download_boltz2(cache: Path) -> None:
         )
         with tarfile.open(str(tar_mols), "r") as tar:
             tar.extractall(cache)  # noqa: S202
-            
+
+        # Remove the oxygen atom from the retinal
         ret_path = mols / "RET.pkl"
         
         with open(ret_path, 'rb') as f:
