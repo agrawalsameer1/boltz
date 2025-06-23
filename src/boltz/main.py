@@ -224,9 +224,9 @@ def download_boltz2(cache: Path) -> None:
         with tarfile.open(str(tar_mols), "r") as tar:
             tar.extractall(cache)  # noqa: S202
             
-        path = mols / "RET.pkl"
+        ret_path = mols / "RET.pkl"
         
-        with open(path, 'rb') as f:
+        with open(ret_path, 'rb') as f:
             RET = pickle.load(f)
         
         rwmol = rdkit.Chem.RWMol(RET)
@@ -234,7 +234,7 @@ def download_boltz2(cache: Path) -> None:
         mol = rdkit.Chem.Mol(rwmol)
             
         rdkit.Chem.SetDefaultPickleProperties(rdkit.Chem.PropertyPickleOptions.AllProps)
-        with open(path, 'wb') as f:
+        with open(ret_path, 'wb') as f:
             pickle.dump(mol, f)    
 
     # Download model
