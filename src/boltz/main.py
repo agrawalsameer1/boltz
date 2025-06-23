@@ -5,7 +5,6 @@ import platform
 import tarfile
 import urllib.request
 import warnings
-import pickle
 import rdkit.Chem
 from dataclasses import asdict, dataclass
 from functools import partial
